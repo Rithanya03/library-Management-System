@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        /* Add some basic styling */
+        #books-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .book-item {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Library Management System</h1>
+    <div>
+        <label for="author-filter">Filter by Author:</label>
+        <input type="text" id="author-filter" oninput="filterBooks()">
+    </div>
+    <div>
+        <label for="title-filter">Title:</label>
+        <input type="text" id="title-filter" oninput="filterBooks()">
+    </div>
+    <div>
+        <label for="publish-date-filter">Publish Date:</label>
+        <input type="date" id="publish-date-filter" onchange="filterBooks()">
+    </div>
+    <div>
+        <label for="subject-filter">Subject:</label>
+        <input type="text" id="subject-filter" oninput="filterBooks()">
+    </div>
+
+    <!-- Submit button -->
+    <button onclick="submitFilteredData()">Submit</button>
+
+    <!-- Login button -->
+    <button onclick="redirectToLogin()">Login</button>
+
+    <!-- Sign up button -->
+    <button onclick="redirectToSignUp()">Sign Up</button>
+
+    <!-- Table displaying 10 books -->
+    <table id="books-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publish Date</th>
+            </tr>
+        </thead>
+        <tbody id="books-list">
+            <!-- Table rows will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <script>
+        function filterBooks() {
+            // Function to filter books, unchanged from your code
+        }
+
+        function submitFilteredData() {
+            // Get filtered data and send it to the backend
+            // This part is already implemented in your code
+        }
+
+        // Function to redirect to the login page
+        function redirectToLogin() {
+            window.location.href = 'http://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=database1&table=details3';
+        }
+
+        // Function to redirect to the sign-up page
+        function redirectToSignUp() {
+            window.location.href = 'http://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=database1&table=details3';
+        }
+
+        // Dummy data for testing
+        const booksData = [
+            { title: 'Atomic Habits', author: 'Author 1', publishDate: '2023-01-01' },
+            { title: 'Harry potter', author: 'Author 2', publishDate: '2023-02-01' },
+            { title: 'Ikigai', author: 'Author 3', publishDate: '2023-03-01' },
+            { title: 'Alchemist', author: 'Author 3', publishDate: '2023-03-01' },
+            { title: 'Positive minds', author: 'Author 3', publishDate: '2023-03-01' },
+            { title: 'Wimpy Kid', author: 'Author 3', publishDate: '2023-03-01' },
+            { title: 'Lord of the rings', author: 'Author 3', publishDate: '2023-03-01' },
+            { title: 'Deep learning', author: 'Author 3', publishDate: '2023-03-01' },
+            { title: 'Data Structures', author: 'Author 3', publishDate: '2023-03-01' },
+            { title: 'Algorithms', author: 'Author 3', publishDate: '2023-03-01' },
+            
+        ];
+
+        // Populate the table with books data
+        const booksTable = document.getElementById('books-list');
+        booksData.slice(0, 10).forEach(book => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${book.title}</td>
+                <td>${book.author}</td>
+                <td>${book.publishDate}</td>
+            `;
+            booksTable.appendChild(row);
+        });
+    </script>
+</body>
+</html>
